@@ -4,14 +4,8 @@ import com.api.pojo.UserCredentials;
 import  static com.api.utils.ConfigManager.*;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
-
 import org.testng.annotations.Test;
-
-
-
-
 import static org.hamcrest.Matchers.*;
-
 import static io.restassured.RestAssured.*;
 
 public class LoginAPITest
