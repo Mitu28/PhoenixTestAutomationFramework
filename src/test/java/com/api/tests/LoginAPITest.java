@@ -1,8 +1,7 @@
 package com.api.tests;
 
 import com.api.pojo.UserCredentials;
-import  static com.api.utils.ConfigManager.*;
-import io.restassured.http.ContentType;
+import com.api.utils.SpecUtil;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
@@ -20,27 +19,11 @@ public class LoginAPITest
 
 
                             given()
-                             .baseUri(getProperty("BASE_URI"))
-                             .and()
-                             .contentType(ContentType.JSON)
-                             .and()
-                             .accept(ContentType.JSON)
-
-                                    .and()
-                                    .body(usercredentials)
-                             .log().uri()
-                             .log().method()
-                             .log().headers()
-                             .log().body()
-
-
-
-                               .when()
-
-                               .post("login")
-                               .then()
-                                    .statusCode(200)
-                                    .time(lessThan(1000L))
+                                    .spec(SpecUtil.requestSpec(usercredentials))
+                                    .when()
+                                    .post("login")
+                                    .then()
+                                    .spec((SpecUtil.responseSpec_OK()))
                                     .body("message",equalTo("Success"))
                                     .log().body()
                                     .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/LoginResponseSchema.json"));
