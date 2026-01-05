@@ -13,7 +13,7 @@ public class CreateJobAPITest {
 
         Customer customer=new Customer("Mits","K","890876546","","mitu@gmail.test","");
         CustomerAddress customerAddress=new CustomerAddress("D 404","Vasant Vihar","Bhanu nagar","Inorbit mall","Mumbai","411039","India","Maharastra");
-        CustomerProduct customerProduct=new CustomerProduct("2025-04-25T05:00:00.000Z","50183914317997","50183914317920","50183914317920","2025-04-25T05:00:00.000Z",1,1);
+        CustomerProduct customerProduct=new CustomerProduct("2025-04-25T05:00:00.000Z","50183914317997","50183914317929","50183914317929","2025-04-25T05:00:00.000Z",1,1);
         Problems problems=new Problems(1,"Battery Issue");
         Problems[] problemsArray=new Problems[1];
         problemsArray[0]=problems;
