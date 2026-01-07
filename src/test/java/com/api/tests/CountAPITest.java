@@ -10,7 +10,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CountAPITest {
 
-    @Test
+    @Test(description = "Verify if the count api is giving correct response",groups = {"api","smoke","regression",})
+
     public void verifyCountAPIResponse() {
         given()
                 .spec(SpecUtil.requestSpecWithAuth(FD))
