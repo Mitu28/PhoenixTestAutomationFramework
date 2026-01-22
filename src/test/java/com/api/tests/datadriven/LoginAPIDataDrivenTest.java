@@ -1,10 +1,10 @@
 package com.api.tests.datadriven;
 
-import com.api.pojo.UserCredentials;
 import com.api.utils.SpecUtil;
 import com.dataproviders.api.bean.UserBean;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.Test;
+import com.api.request.model.UserCredentials;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;

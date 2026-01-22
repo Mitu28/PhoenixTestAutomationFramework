@@ -1,5 +1,4 @@
 package com.api.utils;
-import com.dataproviders.api.bean.UserBean;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -10,42 +9,38 @@ import java.util.List;
 
 public class CSVReaderUtil {
 
-    private CSVReaderUtil(){
+    private CSVReaderUtil() {
 
 
     }
-    public static Iterator<UserBean> loadCSV(String pathOfCSVFile)  {
 
-        InputStream is =    Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);
-        InputStreamReader isr=new InputStreamReader(is);
-        CSVReader csvReader=new CSVReader(isr);
+    public static <T> Iterator<T> loadCSV(String pathOfCSVFile, Class<T>bean) {
+
+        InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);
+        InputStreamReader isr = new InputStreamReader(is);
+        CSVReader csvReader = new CSVReader(isr);
 
 
-        CsvToBean<UserBean> csvToBean=new CsvToBeanBuilder<UserBean>(csvReader)
-                .withType(UserBean.class)
+
+        CsvToBean<T> csvToBean = new CsvToBeanBuilder(csvReader)
+                .withType(bean)
                 .withIgnoreEmptyLine(true)
                 .build();
-        List<UserBean> userList=csvToBean.parse();
-         return userList.iterator();
-
-
-
-
-
-
-
-
-
+        List<T> list = csvToBean.parse();
+        return list.iterator();
 
 
     }
-
-
-
-
-
-
-
 
 
 }
+
+
+
+
+
+
+
+
+
+
