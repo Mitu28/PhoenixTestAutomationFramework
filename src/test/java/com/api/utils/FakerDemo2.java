@@ -22,8 +22,6 @@ public class FakerDemo2 {
 
        Customer customer=new Customer(fname,lname,mobileNumber,altMobileNumber,emailId,altEmailId);
        System.out.println(customer);
-
-
        String faltNumber=faker.numerify("###");
        String aparmentName=faker.address().streetName();
        String streetName=faker.address().streetName();
